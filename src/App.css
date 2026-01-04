@@ -1,0 +1,73 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-weight: 200;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.app-container {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    /* covers whole screen */
+}
+
+.link-button {
+    background-color: #007298;
+    color: #FFF;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+}
+
+.gradient-tata {
+    background: linear-gradient(90deg, #E49D39 0%, #CC3A4A 50%, #8A3D7F 100%);
+}
+
+.bg-blue {
+    background-color: rgb(55, 117, 188);
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-normal {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.padding-xs {
+    padding: .2rem 1rem;
+}
+
+.padding-sm {
+    padding: .5rem 3rem;
+}
+
+.padding-md {
+    padding: 1rem 2rem;
+}
+
+.padding-lg {
+    padding: 1rem 5rem;
+}

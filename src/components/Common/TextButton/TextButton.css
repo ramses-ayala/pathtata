@@ -1,0 +1,28 @@
+.textWhite {
+    color: #FFFFFF;
+}
+
+.textBlack {
+    color: #000000;
+}
+
+.h-md-button {
+    height: 3.125rem; /* 50px */
+}
+
+.h-lg-button {
+    height: 6.25rem; /* 100px */
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.border-btn {
+    border: none;
+    border-radius: 4px;
+}
+
+.w-100 {
+    width: 100%;
+}
