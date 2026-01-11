@@ -1,8 +1,8 @@
-const Input = ({ type, label, text, name, placeHolder, value, classes, onChange }) => {
+const Input = ({ type, label, text, name, placeHolder, value, classes, classesInput, onChange }) => {
     return (
         <>
             <label className={classes} htmlFor={label}>{text}</label>
-            <input type={type} id={label} name={name} placeholder={placeHolder} value={value} onChange={onChange}/>
+            <input className={classesInput} type={type} id={label} name={name} placeholder={placeHolder} value={value} onChange={onChange}/>
         </>
     )
 }
