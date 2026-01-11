@@ -5,8 +5,6 @@ import Input from "../Common/Input/Input";
 import TextButton from "../Common/TextButton/TextButton";
 import { useSignUpMutation } from "../../services/auth/auth";
 import { SIGNUP_TEXT } from "../../constants";
-import "./SignUp.css";
-
 
 const SignUp = () => {
     const [signUpData, setSignUpData] = useState({

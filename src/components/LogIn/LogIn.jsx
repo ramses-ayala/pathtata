@@ -5,7 +5,6 @@ import Header from "../Header/Header";
 import TextButton from "../Common/TextButton/TextButton";
 import { LOGIN_TEXT } from "../../constants";
 import { useLoginMutation } from "../../services/auth/auth";
-import "./LogIn.css";
 
 const LogIn = () => {
     const [loginData, setLoginData] = useState({

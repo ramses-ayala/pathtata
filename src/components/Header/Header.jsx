@@ -21,7 +21,7 @@ const Header = () => {
             <div className='center-div95 display-container inner-space-1'>
                 <Logo />
                 {existToken && <div className='display-container width-20'>
-                    <span className='text-userName'>{userName}</span>
+                    <span className='text-userName my-1 mr-2'>{userName}</span>
                     <TextButton
                         colorText='white'
                         fontWeight='bold'
