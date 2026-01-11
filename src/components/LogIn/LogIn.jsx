@@ -39,42 +39,46 @@ const LogIn = () => {
             <div className="title-center">
                 <h1>Login</h1>
             </div>
-            <form onSubmit={handleSubmit}>
-                <Input
-                    type="email"
-                    label="email"
-                    text="Email"
-                    name="email"
-                    placeHolder="Your email"
-                    value={loginData.email}
-                    classes="font-bold"
-                    onChange={handleChange}
-                />
-                {errors.email && <p className="error-message">{errors.email}</p>}
-                <Input
-                    type="password"
-                    label="password"
-                    text="Password"
-                    name="password"
-                    placeHolder="Password"
-                    fontWeightLabel="bold"
-                    value={loginData.password}
-                    classes="font-bold"
-                    onChange={handleChange}
-                />
-                {errors.password && <p className="error-message">{errors.password}</p>}
-                <TextButton
-                    colorText="white"
-                    buttonText={LOGIN_TEXT}
-                    isSubmit={true}
-                    isLoading={isLogging}
-                    fontWeight="bold"
-                    myClasses='h-md-button gradient-tata'
-                />
-                <div className="text-center mt1">
-                    <p>If you don't have an account you may <Link className="link" to="/signUp">Registration</Link></p>
-                </div>
-            </form>
+            <div className="container-form">
+                <form onSubmit={handleSubmit}>
+                    <Input
+                        type="email"
+                        label="email"
+                        text="Email"
+                        name="email"
+                        placeHolder="Your email"
+                        value={loginData.email}
+                        classes="font-bold"
+                        classesInput="input-form"
+                        onChange={handleChange}
+                    />
+                    {errors.email && <p className="error-message">{errors.email}</p>}
+                    <Input
+                        type="password"
+                        label="password"
+                        text="Password"
+                        name="password"
+                        placeHolder="Password"
+                        fontWeightLabel="bold"
+                        value={loginData.password}
+                        classes="input-form font-bold"
+                        classesInput="input-form"
+                        onChange={handleChange}
+                    />
+                    {errors.password && <p className="error-message">{errors.password}</p>}
+                    <TextButton
+                        colorText="white"
+                        buttonText={LOGIN_TEXT}
+                        isSubmit={true}
+                        isLoading={isLogging}
+                        fontWeight="bold"
+                        myClasses='h-md-button gradient-tata'
+                    />
+                    <div className="text-center mt1">
+                        <p>If you don't have an account you may <Link className="link" to="/signUp">Registration</Link></p>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }

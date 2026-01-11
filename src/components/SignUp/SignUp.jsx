@@ -43,8 +43,8 @@ const SignUp = () => {
             <div className="title-center">
                 <h1>Registration</h1>
             </div>
-            <form className="form-registration" onSubmit={handleSubmit}>
-                <div>
+            <div className="container-form">
+                <form onSubmit={handleSubmit}>
                     <Input
                         type="text"
                         label="name"
@@ -53,11 +53,10 @@ const SignUp = () => {
                         name="name"
                         value={signUpData.name}
                         classes="font-bold"
+                        classesInput="input-form"
                         onChange={handleChange}
                     />
                     {errors.name && <p className="error-message">{errors.name}</p>}
-                </div>
-                <div>
                     <Input
                         type="email"
                         label="email"
@@ -66,11 +65,10 @@ const SignUp = () => {
                         name="email"
                         value={signUpData.email}
                         classes="font-bold"
+                        classesInput="input-form"
                         onChange={handleChange}
                     />
                     {errors.email && <p className="error-message">{errors.email}</p>}
-                </div>
-                <div>
                     <Input
                         type="password"
                         label="password"
@@ -79,17 +77,18 @@ const SignUp = () => {
                         name="password"
                         value={signUpData.password}
                         classes="font-bold"
+                        classesInput="input-form"
                         onChange={handleChange}
                     />
                     {errors.password && <p className="error-message">{errors.password}</p>}
-                </div>
-                <div>
-                    <TextButton myClasses='w-100 h-md-button gradient-tata' colorText="white" fontWeight="bold" buttonText={SIGNUP_TEXT} isSubmit={true} isLoading={isSigningUp} />
-                </div>
-                <div className="text-center mt1">
-                    <p>If you have an account you may <Link className="link" to="/logIn">LogIn</Link></p>
-                </div>
-            </form>
+                    <div>
+                        <TextButton myClasses='w-100 h-md-button gradient-tata' colorText="white" fontWeight="bold" buttonText={SIGNUP_TEXT} isSubmit={true} isLoading={isSigningUp} />
+                    </div>
+                    <div className="text-center mt1">
+                        <p>If you have an account you may <Link className="link" to="/logIn">LogIn</Link></p>
+                    </div>
+                </form>
+            </div>
         </>
     )
 }
