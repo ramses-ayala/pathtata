@@ -5,7 +5,7 @@ const authService = baseApi.injectEndpoints({
     endpoints: (build) => ({
         signUp: build.mutation ({
             query: (signUpData) => ({
-                url: '/register', // * just to make sure if this is the endpoint name
+                url: '/auth/register',
                 method: 'POST',
                 body: signUpData
             }),
@@ -19,17 +19,17 @@ const authService = baseApi.injectEndpoints({
         }),
         login: build.mutation ({
             query: (loginData) => ({
-                url: '/login', // * just to make sure if this is the endpoint name
+                url: '/auth/login',
                 method: 'POST',
                 body: loginData
             }),
             onQueryStarted: async (_, { dispatch, queryFulfilled }) => {
                 try {
-                    const { data } = await queryFulfilled
-                    if (data.successful) {
-                        const { user, result } = data
-                        const token = result.split(' ')[1];
-                        dispatch(setLogin({ name: user.name, email: user.email, token }));
+                    const { data } = await queryFulfilled;
+                    if (data.data) {
+                        const { data: { name, email, token } } = data;
+                        // const token = result.split(' ')[1];
+                        dispatch(setLogin({ name, email, token }));
                     }
                 } catch (error) {
                     console.error('There was an error logging user !!! --> ', error);

@@ -27,8 +27,8 @@ const LogIn = () => {
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            const { data } = await loginUser(loginData)
-            if (data?.successful) navigate('/profile');
+            const { data } = await loginUser(loginData);
+            if (data) navigate('/profile');
         }
     }
 
