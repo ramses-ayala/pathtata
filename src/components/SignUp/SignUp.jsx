@@ -31,7 +31,7 @@ const SignUp = () => {
 
         if (Object.keys(newErrors).length === 0) {
             const { data } = await createUser(signUpData);
-            if (data?.successful) navigate('/logIn');
+            if (data) navigate('/logIn');
         }
     }
 
