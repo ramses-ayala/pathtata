@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../Common/Input/Input";
 import Header from "../Header/Header";
+import Spinner from "../Common/Spinner/Spinner";
 import TextButton from "../Common/TextButton/TextButton";
 import { LOGIN_TEXT } from "../../constants";
 import { useLoginMutation } from "../../services/auth/auth";
@@ -27,10 +28,18 @@ const LogIn = () => {
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            const { data } = await loginUser(loginData);
-            if (data) navigate('/profile');
+            try {
+                setErrors({});
+                const { data } = await loginUser(loginData).unwrap();
+                if (data) navigate('/profile');
+            } catch (error) {
+                if (error?.status === 401) setErrors({ ...error, password: error.data.error });
+                else console.error("Unexpected signIn error:", error);
+            }
         }
     }
+
+    if (isLogging) return <Spinner />
 
     return (
         <>
