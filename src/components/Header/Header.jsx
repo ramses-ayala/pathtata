@@ -2,17 +2,19 @@ import { useNavigate } from 'react-router-dom';
 import Logo from '../Common/Logo/Logo.jsx';
 import TextButton from '../Common/TextButton/TextButton.jsx';
 import { LOGOUT } from '../../constants.js';
-import { useLogoutMutation } from '../../services/auth/auth.js';
+import { logout } from '../../store/auth/authUserSlice.js';
+import { useDispatch } from 'react-redux';
 import useAuth from '../../customHooks/useAuth.jsx';
 import "./Header.css"
 
 const Header = () => {
     const { userName, existToken } = useAuth();
-    const [logOutUser] = useLogoutMutation();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const logOut = async () => {
-        await logOutUser();
+        localStorage.clear();
+        dispatch(logout());
         navigate('/logIn');
     }
 

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Input from "../Common/Input/Input";
 import TextButton from "../Common/TextButton/TextButton";
 import { useSignUpMutation } from "../../services/auth/auth";
 import { SIGNUP_TEXT } from "../../constants";
+import RegistrationModalSuccess from "../RegistrationModalSuccess/RegistrationModalSuccess";
 
 const SignUp = () => {
     const [signUpData, setSignUpData] = useState({
@@ -12,9 +13,9 @@ const SignUp = () => {
         "email": "",
         "password": ""
     });
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     const [createUser, { isLoading: isSigningUp }] = useSignUpMutation();
-    const navigate = useNavigate();
     const [errors, setErrors] = useState({});
 
     const handleChange = (e) => setSignUpData({ ...signUpData, [e.target.name]: e.target.value });
@@ -30,13 +31,23 @@ const SignUp = () => {
         setErrors(newErrors);
 
         if (Object.keys(newErrors).length === 0) {
-            const { data } = await createUser(signUpData);
-            if (data) navigate('/logIn');
+            try {
+                setErrors({});
+                const { data } = await createUser(signUpData).unwrap();    
+                if (data) setShowSuccessModal(true);
+            } catch (error) {
+                if (error?.status === 409) {
+                    setErrors({ ...error, email: error.data.error });
+                } else {
+                    console.error("Unexpected signup error:", error);
+                }
+            }
         }
     }
 
     return (
         <>
+            {showSuccessModal && <RegistrationModalSuccess setShowSuccessModal={setShowSuccessModal} />}
             <Header />
             <div className="title-center">
                 <h1>Registration</h1>
