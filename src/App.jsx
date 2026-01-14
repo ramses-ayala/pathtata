@@ -3,6 +3,7 @@ import LogIn from "./components/LogIn/LogIn";
 import SignUp from "./components/SignUp/SignUp";
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
@@ -22,6 +23,12 @@ function App() {
             path="/profile"
             element={
               <PrivateRoute children={<Profile />} />
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard/>
             }
           />
           <Route path="*" element={<h1>Page not found 404 :(</h1>} />
