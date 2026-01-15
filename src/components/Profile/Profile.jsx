@@ -1,4 +1,5 @@
 import Header from "../Header/Header";
+import "../../App.css";
 
 const Profile = () => {
     return (

@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import Dashboard from "./components/Dashboard/Dashboard";
 import LogIn from "./components/LogIn/LogIn";
 import SignUp from "./components/SignUp/SignUp";
 import Profile from "./components/Profile/Profile";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Dashboard from "./components/Dashboard/Dashboard";
+
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
               <PrivateRoute children={<Profile />} />
             }
           />
-          <Route
+          <Route className={"my-scope"}
             path="/dashboard"
             element={
               <Dashboard/>

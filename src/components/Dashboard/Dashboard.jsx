@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { LearningTree } from './learning-tree';
 import { NodePanel } from './node-panel';
+import "../../index.css";
 
 // Datos de ejemplo para el árbol de aprendizaje
 const learningTreeData = [
@@ -527,7 +528,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+    <div className=" h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
       <header className="absolute top-0 left-0 right-0 z-20 bg-slate-900/80 backdrop-blur-sm border-b border-slate-700/50">
         <div className="px-3 py-3 sm:px-6 sm:py-4">
           <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-white">Árbol de Aprendizaje</h1>
