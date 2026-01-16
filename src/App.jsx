@@ -27,12 +27,12 @@ function App() {
               <Profile />
             }
           />
-          <Route className={"my-scope"}
+          {/* <Route className={"my-scope"}
             path="/dashboard"
             element={
               <Dashboard/>
             }
-          />
+          /> */}
           <Route path="*" element={<h1>Page not found 404 :(</h1>} />
         </Routes>
       </Router>
