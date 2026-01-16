@@ -6,6 +6,7 @@ import Spinner from "../Common/Spinner/Spinner";
 import TextButton from "../Common/TextButton/TextButton";
 import { LOGIN_TEXT } from "../../constants";
 import { useLoginMutation } from "../../services/auth/auth";
+import "../../App.css";
 
 const LogIn = () => {
     const [loginData, setLoginData] = useState({

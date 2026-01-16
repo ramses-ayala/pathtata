@@ -1,10 +1,12 @@
 import Header from "../Header/Header";
+import Dashboard from "../Dashboard/Dashboard";
+import "../../App.css";
 
 const Profile = () => {
     return (
         <>
             <Header />
-            <h2>Profile component</h2>
+            <Dashboard />
         </>
     )
 }
