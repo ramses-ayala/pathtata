@@ -3,7 +3,8 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import LogIn from "./components/LogIn/LogIn";
 import SignUp from "./components/SignUp/SignUp";
 import Profile from "./components/Profile/Profile";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+// <PrivateRoute children={<Profile />} />
 
 
 function App() {
@@ -23,15 +24,15 @@ function App() {
           <Route
             path="/profile"
             element={
-              <PrivateRoute children={<Profile />} />
+              <Profile />
             }
           />
-          <Route className={"my-scope"}
+          {/* <Route className={"my-scope"}
             path="/dashboard"
             element={
               <Dashboard/>
             }
-          />
+          /> */}
           <Route path="*" element={<h1>Page not found 404 :(</h1>} />
         </Routes>
       </Router>
